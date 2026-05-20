@@ -224,9 +224,7 @@ export function ContactSection() {
                 )}
                 <span
                   className={`text-xs font-montserrat tabular-nums ${
-                    messageValue.length >= 10
-                      ? 'text-primary'
-                      : 'text-gray-400'
+                    messageValue.length >= 10 ? 'text-primary' : 'text-gray-400'
                   }`}
                 >
                   {messageValue.length} / 10
