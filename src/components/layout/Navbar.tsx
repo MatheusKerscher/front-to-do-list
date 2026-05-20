@@ -50,7 +50,10 @@ export function Navbar() {
                 sign out
               </button>
               {logoutError && (
-                <span role="alert" className="text-xs text-red-500 font-montserrat">
+                <span
+                  role="alert"
+                  className="text-xs text-red-500 font-montserrat"
+                >
                   {logoutError}
                 </span>
               )}

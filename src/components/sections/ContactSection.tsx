@@ -54,7 +54,10 @@ export function ContactSection() {
   async function onSubmit(data: FormData) {
     setStatus('loading')
     try {
-      await api.post('/contact', { ...data, phone: data.phone.replace(/\D/g, '') })
+      await api.post('/contact', {
+        ...data,
+        phone: data.phone.replace(/\D/g, ''),
+      })
       setStatus('success')
       reset()
     } catch {

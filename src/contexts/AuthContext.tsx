@@ -9,7 +9,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false)
 
   useEffect(() => {
-    authService.me()
+    authService
+      .me()
       .then(setUser)
       .catch(() => setUser(null))
       .finally(() => setIsLoading(false))

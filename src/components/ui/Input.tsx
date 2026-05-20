@@ -30,7 +30,11 @@ export function Input({
         {...rest}
       />
       {error && (
-        <span id={`${id}-error`} role="alert" className="text-xs text-red-500 font-montserrat">
+        <span
+          id={`${id}-error`}
+          role="alert"
+          className="text-xs text-red-500 font-montserrat"
+        >
           {error}
         </span>
       )}

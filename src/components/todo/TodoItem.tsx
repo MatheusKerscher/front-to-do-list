@@ -107,27 +107,27 @@ export function TodoItem({
 
       <div className="flex items-center gap-2 flex-1 min-w-0">
         <button
-            {...attributes}
-            {...listeners}
-            aria-label="Drag"
-            className="shrink-0 opacity-30 hover:opacity-60 cursor-grab active:cursor-grabbing p-0.5"
-            tabIndex={-1}
+          {...attributes}
+          {...listeners}
+          aria-label="Drag"
+          className="shrink-0 opacity-30 hover:opacity-60 cursor-grab active:cursor-grabbing p-0.5"
+          tabIndex={-1}
+        >
+          <svg
+            width="10"
+            height="16"
+            viewBox="0 0 10 16"
+            fill="none"
+            aria-hidden="true"
           >
-            <svg
-              width="10"
-              height="16"
-              viewBox="0 0 10 16"
-              fill="none"
-              aria-hidden="true"
-            >
-              <circle cx="3" cy="3" r="1.5" fill="#424242" />
-              <circle cx="7" cy="3" r="1.5" fill="#424242" />
-              <circle cx="3" cy="8" r="1.5" fill="#424242" />
-              <circle cx="7" cy="8" r="1.5" fill="#424242" />
-              <circle cx="3" cy="13" r="1.5" fill="#424242" />
-              <circle cx="7" cy="13" r="1.5" fill="#424242" />
-            </svg>
-          </button>
+            <circle cx="3" cy="3" r="1.5" fill="#424242" />
+            <circle cx="7" cy="3" r="1.5" fill="#424242" />
+            <circle cx="3" cy="8" r="1.5" fill="#424242" />
+            <circle cx="7" cy="8" r="1.5" fill="#424242" />
+            <circle cx="3" cy="13" r="1.5" fill="#424242" />
+            <circle cx="7" cy="13" r="1.5" fill="#424242" />
+          </svg>
+        </button>
 
         {editing ? (
           <input

@@ -272,17 +272,38 @@ export function TodoSection() {
                     width: '24px',
                     height: '24px',
                     borderColor: activeItem.done ? '#4ac959' : '#e78c38',
-                    backgroundColor: activeItem.done ? '#4ac959' : 'transparent',
+                    backgroundColor: activeItem.done
+                      ? '#4ac959'
+                      : 'transparent',
                   }}
                 >
                   {activeItem.done && (
-                    <svg width="12" height="10" viewBox="0 0 12 10" fill="none" aria-hidden="true">
-                      <path d="M1 5l3 3 7-7" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    <svg
+                      width="12"
+                      height="10"
+                      viewBox="0 0 12 10"
+                      fill="none"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M1 5l3 3 7-7"
+                        stroke="white"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
                     </svg>
                   )}
                 </span>
 
-                <svg width="10" height="16" viewBox="0 0 10 16" fill="none" aria-hidden="true" className="shrink-0 opacity-40">
+                <svg
+                  width="10"
+                  height="16"
+                  viewBox="0 0 10 16"
+                  fill="none"
+                  aria-hidden="true"
+                  className="shrink-0 opacity-40"
+                >
                   <circle cx="3" cy="3" r="1.5" fill="#424242" />
                   <circle cx="7" cy="3" r="1.5" fill="#424242" />
                   <circle cx="3" cy="8" r="1.5" fill="#424242" />
