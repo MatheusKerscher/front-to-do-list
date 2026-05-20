@@ -2,6 +2,7 @@ export interface User {
   id: string
   name: string
   email: string
+  created_at?: string
 }
 
 export interface Todo {
@@ -9,13 +10,6 @@ export interface Todo {
   text: string
   done: boolean
   order: number
-  user_id: string
-  created_at: string
-  updated_at: string
-}
-
-export interface AuthResponse {
-  user: User
 }
 
 export type Tab = 'login' | 'register'

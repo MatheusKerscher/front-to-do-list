@@ -17,12 +17,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, [])
 
   async function login(email: string, password: string) {
-    const { user: u } = await authService.login(email, password)
+    const u = await authService.login(email, password)
     setUser(u)
   }
 
   async function register(name: string, email: string, password: string) {
-    const { user: u } = await authService.register(name, email, password)
+    await authService.register(name, email, password)
+    const u = await authService.me()
     setUser(u)
   }
 
