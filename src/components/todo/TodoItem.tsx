@@ -18,7 +18,6 @@ export function TodoItem({
 }: TodoItemProps) {
   const [editing, setEditing] = useState(false)
   const [editValue, setEditValue] = useState(todo.text)
-  const [hovered, setHovered] = useState(false)
   const [checkHovered, setCheckHovered] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -63,9 +62,7 @@ export function TodoItem({
     <li
       ref={setNodeRef}
       style={style}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      className="flex items-center gap-3 py-3 border-b border-gray-light/40 last:border-b-0 min-h-10"
+      className="group flex items-center gap-3 py-3 border-b border-gray-light/40 last:border-b-0 min-h-10"
     >
       <button
         onClick={() => onToggle(todo.id)}
@@ -157,11 +154,8 @@ export function TodoItem({
 
       <button
         onClick={() => onDelete(todo.id)}
-        onFocus={() => setHovered(true)}
-        onBlur={() => setHovered(false)}
         aria-label={`Delete: ${todo.text}`}
-        className="shrink-0 font-montserrat font-bold text-xs text-gray transition-opacity focus-visible:opacity-100 focus-visible:outline-2 focus-visible:outline-red-400"
-        style={{ opacity: hovered ? 1 : 0 }}
+        className="shrink-0 font-montserrat font-bold text-xs text-gray transition-opacity opacity-100 lg:opacity-0 lg:group-hover:opacity-100 focus-visible:opacity-100 focus-visible:outline-2 focus-visible:outline-red-400"
       >
         delete
       </button>
