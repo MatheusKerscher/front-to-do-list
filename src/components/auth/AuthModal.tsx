@@ -10,12 +10,8 @@ export function AuthModal() {
   const [tab, setTab] = useState<Tab>('login')
 
   useEffect(() => {
-    function onKey(e: KeyboardEvent) {
-      if (e.key === 'Escape') closeAuthModal()
-    }
-    document.addEventListener('keydown', onKey)
-    return () => document.removeEventListener('keydown', onKey)
-  }, [closeAuthModal])
+    if (isAuthModalOpen) setTab('login')
+  }, [isAuthModalOpen])
 
   if (!isAuthModalOpen) return null
 
@@ -26,9 +22,6 @@ export function AuthModal() {
       role="dialog"
       aria-modal="true"
       aria-label={tab === 'login' ? 'Sign in to account' : 'Create account'}
-      onClick={(e) => {
-        if (e.target === e.currentTarget) closeAuthModal()
-      }}
     >
       <div
         className="bg-white w-full max-w-170 relative shadow-xl flex flex-col"
@@ -90,9 +83,9 @@ export function AuthModal() {
           </div>
 
           {tab === 'login' ? (
-            <LoginForm onSuccess={closeAuthModal} />
+            <LoginForm isOpen={isAuthModalOpen} onSuccess={closeAuthModal} />
           ) : (
-            <RegisterForm onSuccess={closeAuthModal} />
+            <RegisterForm isOpen={isAuthModalOpen} onSuccess={closeAuthModal} />
           )}
         </div>
       </div>

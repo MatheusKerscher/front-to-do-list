@@ -61,7 +61,7 @@ export function TodoColumn({
           )}
         </div>
 
-        {onEraseAll && (
+        {onEraseAll && todos.length > 0 && (
           <div className="mt-6 flex justify-center">
             <button
               onClick={onEraseAll}
