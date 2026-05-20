@@ -17,7 +17,14 @@
   "bugs": {
     "url": "https://github.com/MatheusKerscher/front-to-do-list/issues"
   },
-  "keywords": ["react", "typescript", "tailwindcss", "vite", "todo", "dnd-kit"],
+  "keywords": [
+    "react",
+    "typescript",
+    "tailwindcss",
+    "vite",
+    "todo",
+    "dnd-kit"
+  ],
   "license": "MIT",
   "engines": {
     "node": ">=20"
