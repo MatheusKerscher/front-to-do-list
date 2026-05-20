@@ -3,6 +3,7 @@ import { useAuth } from '../../hooks/useAuth'
 import { LoginForm } from './LoginForm'
 import { RegisterForm } from './RegisterForm'
 import type { Tab } from '../../types'
+import loginIconSrc from '../../assets/login-icon.svg'
 
 export function AuthModal() {
   const { isAuthModalOpen, closeAuthModal } = useAuth()
@@ -43,7 +44,7 @@ export function AuthModal() {
 
         <div className="hidden sm:flex gap-5 items-center justify-center mt-4">
           <img
-            src="/src/assets/login-icon.svg"
+            src={loginIconSrc}
             alt="Authentication illustration"
             className="mb-4"
             style={{ width: '120px' }}

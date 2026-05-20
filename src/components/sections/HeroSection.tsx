@@ -51,7 +51,7 @@ export function HeroSection() {
         </div>
 
         <div
-          className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce"
+          className="absolute bottom-20 sm:bottom-6 left-1/2 -translate-x-1/2 animate-bounce"
           aria-hidden="true"
         >
           <svg width="24" height="40" viewBox="0 0 24 40" fill="none">

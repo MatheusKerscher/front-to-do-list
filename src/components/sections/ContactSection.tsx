@@ -5,12 +5,16 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import api from '../../services/api'
 
 const schema = z.object({
-  name: z.string().min(2, 'Name must be at least 2 characters'),
+  name: z
+    .string('Name must be at least 2 characters')
+    .min(2, 'Name must be at least 2 characters'),
   email: z.email('Please enter a valid email'),
   phone: z
-    .string()
+    .string('Invalid phone — use (XX) XXXX-XXXX or (XX) XXXXX-XXXX')
     .min(14, 'Invalid phone — use (XX) XXXX-XXXX or (XX) XXXXX-XXXX'),
-  message: z.string().min(10, 'Message must be at least 10 characters'),
+  message: z
+    .string('Message must be at least 10 characters')
+    .min(10, 'Message must be at least 10 characters'),
 })
 
 type FormData = z.infer<typeof schema>
@@ -45,6 +49,7 @@ export function ContactSection() {
     handleSubmit,
     reset,
     control,
+    watch,
     formState: { errors },
   } = useForm<FormData>({
     resolver: zodResolver(schema),
@@ -208,11 +213,24 @@ export function ContactSection() {
                 className={`${fieldClass(!!errors.message)} resize-none`}
                 {...register('message')}
               />
-              {errors.message && (
-                <span role="alert" className="text-xs text-red-500">
-                  {errors.message.message}
+              <div className="flex justify-between items-center mt-1">
+                {errors.message ? (
+                  <span role="alert" className="text-xs text-red-500">
+                    {errors.message.message}
+                  </span>
+                ) : (
+                  <span />
+                )}
+                <span
+                  className={`text-xs font-montserrat tabular-nums ${
+                    (watch('message') ?? '').length >= 10
+                      ? 'text-primary'
+                      : 'text-gray-400'
+                  }`}
+                >
+                  {(watch('message') ?? '').length} / 10
                 </span>
-              )}
+              </div>
             </div>
 
             {status === 'success' && (

@@ -7,8 +7,8 @@ import { Input } from '../ui/Input'
 import { Button } from '../ui/Button'
 
 const schema = z.object({
-  email: z.string().email('Invalid email'),
-  password: z.string().min(6, 'Password must be at least 6 characters'),
+  email: z.email('Invalid email'),
+  password: z.string('Invalid password').min(1, 'Invalid password'),
 })
 
 type FormData = z.infer<typeof schema>

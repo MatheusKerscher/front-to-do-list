@@ -8,9 +8,20 @@ import { Button } from '../ui/Button'
 
 const schema = z
   .object({
-    name: z.string().min(2, 'Name must be at least 2 characters'),
-    email: z.string().email('Invalid email'),
-    password: z.string().min(6, 'Password must be at least 6 characters'),
+    name: z
+      .string('Name must be at least 2 characters')
+      .min(2, 'Name must be at least 2 characters'),
+    email: z.email('Invalid email'),
+    password: z
+      .string('Password must be at least 8 characters')
+      .min(8, 'Password must be at least 8 characters')
+      .regex(/[a-z]/, 'Password must contain at least one lowercase letter')
+      .regex(/[A-Z]/, 'Password must contain at least one uppercase letter')
+      .regex(/[0-9]/, 'Password must contain at least one number')
+      .regex(
+        /[^a-zA-Z0-9]/,
+        'Password must contain at least one special character',
+      ),
     confirm: z.string(),
   })
   .refine((d) => d.password === d.confirm, {
@@ -74,7 +85,7 @@ export function RegisterForm({ onSuccess }: RegisterFormProps) {
         id="register-password"
         type="password"
         label="Password"
-        placeholder="Min. 6 characters"
+        placeholder="Min. 8 chars, A-z, 0-9, #$%..."
         autoComplete="new-password"
         error={errors.password?.message}
         {...register('password')}
