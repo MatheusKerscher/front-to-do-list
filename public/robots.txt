@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://coopers-front.kerscher.dev.br/sitemap.xml

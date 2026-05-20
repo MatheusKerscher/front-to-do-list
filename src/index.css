@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Montserrat:wght@400;600;700&family=Mulish:wght@700&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --color-primary: #4ac959;
+  --color-primary-light: #42d76b;
+  --color-secondary: #49af55;
+  --color-dark: #424242;
+  --color-background: #ffffff;
+  --color-gray: #979797;
+  --color-gray-light: #c4c4c4;
+
+  --color-orange: #e78c38;
+  --color-navy: #05152a;
+  --color-contact: #46bd62;
+
+  --font-poppins: 'Poppins', sans-serif;
+  --font-montserrat: 'Montserrat', sans-serif;
+  --font-mulish: 'Mulish', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-montserrat);
+  background-color: var(--color-background);
+  color: var(--color-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.good-things-swiper {
+  --swiper-pagination-color: #4ac959;
+  --swiper-pagination-bullet-inactive-color: #979797;
+  --swiper-pagination-bullet-inactive-opacity: 1;
+  --swiper-pagination-bullet-size: 14px;
+  --swiper-pagination-bullet-horizontal-gap: 6px;
+}

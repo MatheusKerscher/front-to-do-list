@@ -1,0 +1,13 @@
+{
+  "name": "Coopers To-Do List",
+  "short_name": "Coopers",
+  "description": "Organize your daily jobs",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f0f1f2",
+  "theme_color": "#4ac959",
+  "icons": [
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/favicon.svg", "type": "image/svg+xml", "sizes": "any" }
+  ]
+}
