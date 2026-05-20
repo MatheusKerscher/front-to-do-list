@@ -110,6 +110,7 @@ export function TodoItem({
           {...attributes}
           {...listeners}
           aria-label="Drag"
+          style={{ touchAction: 'none' }}
           className="shrink-0 opacity-30 hover:opacity-60 cursor-grab active:cursor-grabbing p-0.5"
           tabIndex={-1}
         >
