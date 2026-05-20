@@ -1,8 +1,27 @@
 {
   "name": "front-to-do-list",
+  "description": "Frontend do desafio técnico Full Stack da Coopers Digital — to-do list com autenticação, drag-and-drop e formulário de contato.",
+  "version": "1.0.0",
   "private": true,
-  "version": "0.0.0",
   "type": "module",
+  "author": {
+    "name": "Matheus Kerscher",
+    "email": "kerschermatheus12@gmail.com",
+    "url": "https://github.com/MatheusKerscher"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MatheusKerscher/front-to-do-list.git"
+  },
+  "homepage": "https://github.com/MatheusKerscher/front-to-do-list#readme",
+  "bugs": {
+    "url": "https://github.com/MatheusKerscher/front-to-do-list/issues"
+  },
+  "keywords": ["react", "typescript", "tailwindcss", "vite", "todo", "dnd-kit"],
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
