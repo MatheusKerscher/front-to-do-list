@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useForm, Controller } from 'react-hook-form'
+import { useForm, Controller, useWatch } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import api from '../../services/api'
@@ -49,12 +49,13 @@ export function ContactSection() {
     handleSubmit,
     reset,
     control,
-    watch,
     formState: { errors },
   } = useForm<FormData>({
     resolver: zodResolver(schema),
     mode: 'onTouched',
   })
+
+  const messageValue = useWatch({ control, name: 'message', defaultValue: '' })
 
   async function onSubmit(data: FormData) {
     setStatus('loading')
@@ -223,12 +224,12 @@ export function ContactSection() {
                 )}
                 <span
                   className={`text-xs font-montserrat tabular-nums ${
-                    (watch('message') ?? '').length >= 10
+                    messageValue.length >= 10
                       ? 'text-primary'
                       : 'text-gray-400'
                   }`}
                 >
-                  {(watch('message') ?? '').length} / 10
+                  {messageValue.length} / 10
                 </span>
               </div>
             </div>
