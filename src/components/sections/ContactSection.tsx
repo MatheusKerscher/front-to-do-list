@@ -3,6 +3,7 @@ import { useForm, Controller, useWatch } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import api from '../../services/api'
+import emailIcon from '../../assets/email-icon.svg'
 
 const schema = z.object({
   name: z
@@ -115,7 +116,7 @@ export function ContactSection() {
               aria-hidden="true"
             >
               <img
-                src="/src/assets/email-icon.svg"
+                src={emailIcon}
                 alt=""
                 className="object-cover"
               />
