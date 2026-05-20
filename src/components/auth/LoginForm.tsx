@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -29,12 +29,14 @@ export function LoginForm({ isOpen, onSuccess }: LoginFormProps) {
     formState: { errors, isSubmitting },
   } = useForm<FormData>({ resolver: zodResolver(schema), mode: 'onTouched' })
 
-  useEffect(() => {
+  const [prevIsOpen, setPrevIsOpen] = useState(isOpen)
+  if (isOpen !== prevIsOpen) {
+    setPrevIsOpen(isOpen)
     if (isOpen) {
       reset()
       setServerError('')
     }
-  }, [isOpen, reset])
+  }
 
   async function onSubmit(data: FormData) {
     setServerError('')

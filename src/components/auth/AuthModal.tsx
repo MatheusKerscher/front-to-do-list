@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useAuth } from '../../hooks/useAuth'
 import { LoginForm } from './LoginForm'
 import { RegisterForm } from './RegisterForm'
@@ -8,10 +8,11 @@ import loginIconSrc from '../../assets/login-icon.svg'
 export function AuthModal() {
   const { isAuthModalOpen, closeAuthModal } = useAuth()
   const [tab, setTab] = useState<Tab>('login')
-
-  useEffect(() => {
+  const [prevIsOpen, setPrevIsOpen] = useState(isAuthModalOpen)
+  if (isAuthModalOpen !== prevIsOpen) {
+    setPrevIsOpen(isAuthModalOpen)
     if (isAuthModalOpen) setTab('login')
-  }, [isAuthModalOpen])
+  }
 
   if (!isAuthModalOpen) return null
 
