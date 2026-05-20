@@ -1,11 +1,7 @@
 import axios from 'axios'
 
-const envUrl: string = import.meta.env.VITE_API_URL ?? ''
-// Se for URL absoluta, usa string vazia para o proxy do Vite interceptar
-const baseURL = envUrl.startsWith('http') ? '' : envUrl
-
 const api = axios.create({
-  baseURL,
+  baseURL: import.meta.env.VITE_API_URL ?? '',
   withCredentials: true,
   headers: { 'Content-Type': 'application/json' },
 })
