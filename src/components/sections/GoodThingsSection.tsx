@@ -62,6 +62,7 @@ export function GoodThingsSection() {
                     className="w-full h-full object-cover"
                     width={360}
                     height={200}
+                    loading="lazy"
                   />
                 </div>
 
@@ -72,6 +73,7 @@ export function GoodThingsSection() {
                   width="30"
                   height="34"
                   className="absolute right-4 z-10 top-50 -translate-y-1/2"
+                  loading="lazy"
                 />
 
                 <div className="p-4 flex flex-col gap-3 flex-1">
