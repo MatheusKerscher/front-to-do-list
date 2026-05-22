@@ -1,6 +1,6 @@
 export function HeroSection() {
   return (
-    <section className="bg-white h-182.5" aria-label="Hero">
+    <section id="hero" className="bg-white h-182.5" aria-label="Hero">
       <div className="relative flex items-center h-182.5">
         <div className="relative z-10 flex-1 max-w-7xl mx-auto sm:px-8 py-16 flex items-center justify-center lg:justify-start">
           <div className="max-w-140 text-center lg:text-left">
@@ -46,6 +46,7 @@ export function HeroSection() {
               src="/images/hero.png"
               alt="Modern interior"
               className="w-full h-full object-cover"
+              fetchPriority="high"
             />
           </div>
         </div>

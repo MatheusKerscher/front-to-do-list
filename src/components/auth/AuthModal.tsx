@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useAuth } from '../../hooks/useAuth'
 import { LoginForm } from './LoginForm'
 import { RegisterForm } from './RegisterForm'
@@ -13,6 +13,15 @@ export function AuthModal() {
     setPrevIsOpen(isAuthModalOpen)
     if (isAuthModalOpen) setTab('login')
   }
+
+  useEffect(() => {
+    if (!isAuthModalOpen) return
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') closeAuthModal()
+    }
+    document.addEventListener('keydown', handler)
+    return () => document.removeEventListener('keydown', handler)
+  }, [isAuthModalOpen, closeAuthModal])
 
   if (!isAuthModalOpen) return null
 
@@ -42,6 +51,7 @@ export function AuthModal() {
             alt="Authentication illustration"
             className="mb-4"
             style={{ width: '120px' }}
+            loading="lazy"
           />
           <div className="mb-6">
             <h2
