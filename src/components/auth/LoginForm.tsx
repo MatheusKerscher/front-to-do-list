@@ -7,7 +7,7 @@ import { Input } from '../ui/Input'
 import { Button } from '../ui/Button'
 
 const schema = z.object({
-  email: z.email('Invalid email'),
+  email: z.string().trim().email('Invalid email'),
   password: z.string('Invalid password').min(1, 'Invalid password'),
 })
 

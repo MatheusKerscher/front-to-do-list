@@ -1,4 +1,5 @@
 import { useState, type KeyboardEvent } from 'react'
+import { stripHtml } from '../../utils/sanitize'
 
 interface AddTodoInputProps {
   onAdd: (title: string) => Promise<void>
@@ -9,11 +10,11 @@ export function AddTodoInput({ onAdd }: AddTodoInputProps) {
   const [loading, setLoading] = useState(false)
 
   async function submit() {
-    const trimmed = value.trim()
-    if (!trimmed || loading) return
+    const sanitized = stripHtml(value.trim())
+    if (!sanitized || loading) return
     setLoading(true)
     try {
-      await onAdd(trimmed)
+      await onAdd(sanitized)
       setValue('')
     } finally {
       setLoading(false)
@@ -33,6 +34,7 @@ export function AddTodoInput({ onAdd }: AddTodoInputProps) {
         onKeyDown={onKeyDown}
         placeholder="Add new here..."
         aria-label="New task"
+        maxLength={500}
         disabled={loading}
         className="flex-1 font-montserrat font-bold text-base text-dark bg-transparent focus:outline-none placeholder-gray-light disabled:opacity-50"
       />

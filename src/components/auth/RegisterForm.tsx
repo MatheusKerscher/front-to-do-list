@@ -5,13 +5,17 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useAuth } from '../../hooks/useAuth'
 import { Input } from '../ui/Input'
 import { Button } from '../ui/Button'
+import { stripHtml } from '../../utils/sanitize'
 
 const schema = z
   .object({
     name: z
-      .string('Name must be at least 2 characters')
-      .min(2, 'Name must be at least 2 characters'),
-    email: z.email('Invalid email'),
+      .string()
+      .trim()
+      .min(2, 'Name must be at least 2 characters')
+      .max(100, 'Name must be at most 100 characters')
+      .transform(stripHtml),
+    email: z.string().trim().email('Invalid email'),
     password: z
       .string('Password must be at least 8 characters')
       .min(8, 'Password must be at least 8 characters')

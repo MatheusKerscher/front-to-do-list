@@ -4,18 +4,25 @@ import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import api from '../../services/api'
 import emailIcon from '../../assets/email-icon.svg'
+import { stripHtml } from '../../utils/sanitize'
 
 const schema = z.object({
   name: z
-    .string('Name must be at least 2 characters')
-    .min(2, 'Name must be at least 2 characters'),
-  email: z.email('Please enter a valid email'),
+    .string()
+    .trim()
+    .min(2, 'Name must be at least 2 characters')
+    .max(100, 'Name must be at most 100 characters')
+    .transform(stripHtml),
+  email: z.string().trim().email('Please enter a valid email'),
   phone: z
     .string('Invalid phone — use (XX) XXXX-XXXX or (XX) XXXXX-XXXX')
     .min(14, 'Invalid phone — use (XX) XXXX-XXXX or (XX) XXXXX-XXXX'),
   message: z
-    .string('Message must be at least 10 characters')
-    .min(10, 'Message must be at least 10 characters'),
+    .string()
+    .trim()
+    .min(10, 'Message must be at least 10 characters')
+    .max(2000, 'Message must be at most 2000 characters')
+    .transform(stripHtml),
 })
 
 type FormData = z.infer<typeof schema>
@@ -105,6 +112,7 @@ export function ContactSection() {
               className="w-full h-full object-cover object-top"
               width={191}
               height={191}
+              loading="lazy"
             />
           </div>
         </div>
@@ -115,7 +123,7 @@ export function ContactSection() {
               className="flex items-center justify-center shrink-0 bg-primary w-14 h-14 rounded"
               aria-hidden="true"
             >
-              <img src={emailIcon} alt="" className="object-cover" />
+              <img src={emailIcon} alt="" className="object-cover" loading="lazy" />
             </div>
 
             <p className="font-montserrat font-normal text-2xl text-navy uppercase tracking-wider leading-snug">
