@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useLayoutEffect, useRef } from 'react'
 
 export interface Shortcut {
   key: string
@@ -15,7 +15,9 @@ const INPUT_TAGS = new Set(['INPUT', 'TEXTAREA', 'SELECT'])
 
 export function useKeyboardShortcuts(shortcuts: Shortcut[]) {
   const ref = useRef<Shortcut[]>(shortcuts)
-  ref.current = shortcuts
+  useLayoutEffect(() => {
+    ref.current = shortcuts
+  })
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
