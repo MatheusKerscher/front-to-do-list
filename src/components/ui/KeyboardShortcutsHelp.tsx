@@ -5,7 +5,10 @@ interface KeyboardShortcutsHelpProps {
   onClose: () => void
 }
 
-export function KeyboardShortcutsHelp({ shortcuts, onClose }: KeyboardShortcutsHelpProps) {
+export function KeyboardShortcutsHelp({
+  shortcuts,
+  onClose,
+}: KeyboardShortcutsHelpProps) {
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-4"
@@ -17,7 +20,7 @@ export function KeyboardShortcutsHelp({ shortcuts, onClose }: KeyboardShortcutsH
     >
       <div
         className="bg-white max-w-lg w-full p-8 rounded shadow-xl relative"
-        onClick={e => e.stopPropagation()}
+        onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
@@ -33,12 +36,14 @@ export function KeyboardShortcutsHelp({ shortcuts, onClose }: KeyboardShortcutsH
         <div className="h-[3px] w-10 bg-primary mb-6" />
 
         <div className="flex flex-col gap-3">
-          {shortcuts.map(s => (
+          {shortcuts.map((s) => (
             <div key={s.label} className="flex items-center gap-4">
               <kbd className="shrink-0 bg-[#f0f1f2] border border-gray-200 rounded px-2 py-0.5 font-montserrat text-xs text-dark w-20 text-center">
                 {s.label}
               </kbd>
-              <span className="font-montserrat text-sm text-dark">{s.description}</span>
+              <span className="font-montserrat text-sm text-dark">
+                {s.description}
+              </span>
             </div>
           ))}
         </div>

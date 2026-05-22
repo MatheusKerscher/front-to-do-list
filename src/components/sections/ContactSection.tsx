@@ -123,7 +123,12 @@ export function ContactSection() {
               className="flex items-center justify-center shrink-0 bg-primary w-14 h-14 rounded"
               aria-hidden="true"
             >
-              <img src={emailIcon} alt="" className="object-cover" loading="lazy" />
+              <img
+                src={emailIcon}
+                alt=""
+                className="object-cover"
+                loading="lazy"
+              />
             </div>
 
             <p className="font-montserrat font-normal text-2xl text-navy uppercase tracking-wider leading-snug">

@@ -26,7 +26,8 @@ export function useKeyboardShortcuts(shortcuts: Shortcut[]) {
         if (e.key !== shortcut.key) continue
         if (!!shortcut.alt !== e.altKey) continue
         if (!!shortcut.ctrl !== e.ctrlKey) continue
-        if (shortcut.shift !== undefined && shortcut.shift !== e.shiftKey) continue
+        if (shortcut.shift !== undefined && shortcut.shift !== e.shiftKey)
+          continue
         if (inInput && !shortcut.allowInInput) continue
 
         e.preventDefault()
